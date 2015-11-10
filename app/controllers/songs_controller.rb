@@ -42,6 +42,22 @@ class SongsController < ApplicationController
     redirect_to songs_path
   end
 
+  # add favorite
+  def add_favorite
+    @song = Song.find(params[:id])
+    @artist = @song.artist
+    @song.favorites.create(user: current_user)
+    redirect_to artist_path(@artist)
+  end
+
+  # remove favorite
+  def remove_favorite
+    @song = Song.find(params[:id])
+    @artist = @song.artist
+    @song.favorites.where(user: current_user).destroy_all
+    redirect_to artist_path(@artist)
+  end
+
   private
   def song_params
     params.require(:song).permit(:title, :album, :preview_url, :artist_id)

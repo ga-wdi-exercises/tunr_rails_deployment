@@ -1,4 +1,5 @@
 <%= form_for([@artist, @song]) do |f| %>
+  <p class="alert"><%= @song.errors.full_messages.first if @song.errors.any? %></p>
 
   <%= f.label :title %>
   <%= f.text_field :title %>

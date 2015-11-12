@@ -110,3 +110,9 @@ a.no-fav {
 .fav:visited, .no-fav:visited {
   text-decoration: none;
 }
+ .alert{
+   color:red;
+ }
+ .notice{
+   color:blue;
+ }

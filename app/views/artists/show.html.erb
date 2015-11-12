@@ -1,4 +1,4 @@
-<h2><%= @artist.name %> <a href="/artists/<%= @artist.id %>/edit">(edit)</a></h2>
+<h2><%= @artist.name %> <%= link_to "(edit)", edit_artist_path(@artist) %></h2>
 <h4><%= @artist.nationality %></h4>
 
 <img class='artist-photo' src="<%= @artist.photo_url %>">
@@ -7,12 +7,12 @@
 <ul>
   <% @artist.songs.each do |song| %>
     <li>
-      <%= link_to "#{song.title} (#{song.album})", artist_song_path(@artist, song) %>
       <% if song.favorites.length > 0 %>
         <%= link_to "&hearts;".html_safe, remove_favorite_song_path(song), method: :delete, class: "fav" %>
       <% else %>
         <%= link_to "&hearts;".html_safe, add_favorite_song_path(song), method: :post, class: "no-fav" %>
       <% end %>
+      <%= link_to "#{song.title} (#{song.album})", song_path(song) %>
     </li>
 
   <% end %>

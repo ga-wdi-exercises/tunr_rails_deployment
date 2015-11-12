@@ -22,11 +22,11 @@
       <% end %>      
     </div>
   </nav>
+  <% flash.each do |type, message| %>
+    <p class="<%= type %>"><%= message %></p>
+  <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <%= yield %>
+<%= yield %>
 
 </body>
 </html>

@@ -1,3 +1,5 @@
+<p class="alert"><%= @artist.errors.full_messages.first if @artist.errors.any? %></p>
+
 <%= form_for @artist do |f| %>
 
   <%= f.label :name %>
